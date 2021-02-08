@@ -1,0 +1,53 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env", 
+          {
+            "targets": {
+              "node": "current"
+            },
+            "modules": false,
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": [
+        ["@babel/plugin-proposal-function-bind"],
+        ["@babel/plugin-transform-modules-commonjs"]
+      ]
+    },
+    "production": {
+      "presets": [
+        ["@babel/preset-env", {
+          "targets": {
+            "node": "6"
+          },
+          "modules": false,
+          "loose": true
+        }],
+        "minify"
+      ],
+      "plugins": [
+        ["@babel/plugin-transform-modules-commonjs"],
+        ["@babel/plugin-proposal-function-bind"],
+        ["@babel/plugin-transform-runtime", { "regenerator": true }]
+      ]
+    }
+  },
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "6"
+      },
+      "modules": false,
+      "loose": true
+    }]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-modules-commonjs"],
+    ["@babel/plugin-proposal-function-bind"],
+    ["@babel/plugin-transform-runtime", { "regenerator": true }]
+  ]
+}
