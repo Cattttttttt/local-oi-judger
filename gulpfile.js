@@ -14,7 +14,7 @@ var tsProject = ts.createProject('tsconfig.json')
 const babelRc = JSON.parse(fs.readFileSync(path.join(__dirname, '.babelrc'), 'utf-8'))
 
 const build = (lib, opts) => 
-  gulp.src('src/**/*.ts')
+  gulp.src(['src/**/*.ts', 'config/**/*.js', 'scripts/**/*.js'])
       .pipe(plumber({
         errorHandler(err) {
           log.error(err.stack)
