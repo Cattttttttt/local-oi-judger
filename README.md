@@ -1,2 +1,10 @@
-# local-oi-judger
-Locally OI code judger
+## 一个本地的OI Code样例对拍器
+
+还在做（
+
+- [ ] 本地样例的对拍
+- [ ] CLI
+- [ ] 运行时间 内存的统计
+- [ ] 通过json来管理样例
+- [ ] 在线获取oj上的样例进行对拍
+- [ ] 支持数据生成器
