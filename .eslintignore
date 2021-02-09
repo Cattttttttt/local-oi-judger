@@ -1,4 +1,7 @@
-dist
 node_modules
 config
 webpack.config.js
+lib
+*.d.ts
+gulpfile.js
+test

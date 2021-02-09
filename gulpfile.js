@@ -22,40 +22,16 @@ const build = (lib, opts) =>
         },
       }))
       .pipe(newer(lib))
-      .pipe(gulpif(argv.sourcemaps, sourcemaps.init()))
+      .pipe(sourcemaps.init())
         .pipe(tsProject())
         .js
-        .pipe(babel(opts))
-        .pipe(concat('cli.js'))
-      .pipe(gulpif(argv.sourcemaps, sourcemaps.write('.', { sourceRoot: '../src' })))
+      .pipe(sourcemaps.write('.', { sourceRoot: '../src' }))
       .pipe(gulp.dest(lib))
 
-const configBuild = (lib, opts) => 
-  gulp.src('config/**/*.js')
-      .pipe(plumber({
-        errorHandler(err) {
-          log.error(err.stack)
-        },
-      }))
-      .pipe(newer(lib))
-      .pipe(babel(opts))
-      .pipe(gulp.dest(lib))
 
-const binBuild = lib =>
-  gulp.src('bin/**/*')
-      .pipe(plumber({
-        errorHandler(err) {
-          log.error(err.stack)
-        },
-      }))
-      .pipe(newer(lib))
-      .pipe(gulp.dest(lib))
-
-gulp.task('build', () => {
-  build('dist/lib', babelRc.env['production'])
-  configBuild('dist/config', babelRc.env['test'])
-  return binBuild('dist/bin')
-})    
+gulp.task('build', () => 
+  build('test', babelRc.env['production'])
+)    
 
 gulp.task('default', gulp.task('build'))
 

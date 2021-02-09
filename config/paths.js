@@ -1,8 +1,3 @@
-// @remove-on-eject-begin
-/**
- * Write like facebook/create-react-app
- */
-// @remove-on-eject-end
 const childProcess = require('child_process')
 const fs = require('fs')
 const path = require('path')
@@ -41,32 +36,25 @@ const checkGCC = type => {
   }
 }
 
-// config after eject: we're in ./config/
-module.exports = {
-  sysPlatform,
-  gccVersion: checkGCC('version'),
-  gccPath: checkGCC('path'),
-  appPath: resolveApp('.'),
-  appPackageJson: resolveApp('package.json'),
-  appYarnLockFile: resolveApp('yarn.lock'),
-  appNodeModules: resolveApp('node_modules'),
-}
-
-// @remove-on-eject-begin
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath)
+let customConfigOverride
 
-// config before eject: we're in ./node_modules/package_name/config/
+if(fs.existsSync(path.join(resolveApp('.'), 'judger.config.json'))) {
+  customConfigOverride = JSON.parse(fs.readFileSync(path.join(resolveApp('.'), 'judger.config.json'), 'utf-8'))
+}
+
 module.exports = {
   sysPlatform,
   gccVersion: checkGCC('version'),
   gccPath: checkGCC('path'),
   appPath: resolveApp('.'),
-  appPackageJson: resolveApp('package.json'),
-  appYarnLockFile: resolveApp('yarn.lock'),
-  appNodeModules: resolveApp('node_modules'),
-  // These properties only exist before ejecting
   ownPath: resolveOwn('.'),
-  ownNodeModules: resolveOwn('node_modules')
+  samplePath: resolveApp('./sample'),
+  codePath: resolveApp('./code'),
+  cacheTempPath: resolveApp('./temp'),
+  gccArgs: '-o',
+  ojURL: {
+    luogu: 'https://www.luogu.com.cn'
+  },
+  ...customConfigOverride,
 }
-
-// @remove-on-eject-end

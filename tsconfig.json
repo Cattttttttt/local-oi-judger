@@ -1,10 +1,18 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "sourceMap": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@config/*": ["config/*"]
+    }
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "index.d.ts"
   ],
   "exclude": [
     "node_modules"

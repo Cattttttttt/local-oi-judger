@@ -32,7 +32,6 @@ module.exports = {
 		'default-case': 'error',
 		'curly': 'error',
 		'no-case-declarations': 'error',
-		'no-shadow': ['error', { 'builtinGlobals': true, 'hoist': 'never' }],
 		'no-self-assign': 'error',
 		'no-self-compare': 'error',
 		'comma-dangle': ['error', {
@@ -51,6 +50,7 @@ module.exports = {
 		'computed-property-spacing': ['error', 'never'],
 		'key-spacing': 'error',
 		'no-mixed-spaces-and-tabs': 'error',
+		'no-unused-vars': 'warn',
 		'no-mixed-operators': ['error', {
 			'groups': [
 				['&', '|', '^', '~', '<<', '>>', '>>>'],
