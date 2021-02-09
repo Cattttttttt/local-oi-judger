@@ -8,7 +8,7 @@ process.on('unhandledRejection', err => {
 import * as fs from 'fs-extra'
 import * as path from 'path'
 import { prompt } from 'inquirer'
-import * as paths from '../../../config/paths'
+import * as paths from '@config/paths'
 import { cyan, green } from 'chalk'
 
 prompt({
