@@ -11,11 +11,11 @@ const sysPlatform = process.platform
 
 const checkGCC = type => {
   try {
-    const res = childProcess.spawnSync('gcc', ['-v']).stderr.toString()
+    const res = childProcess.spawnSync('g++', ['-v']).stderr.toString()
     switch(type) {
       case 'path': {
         if(GCCPathReg.test(res)) {
-          const tmp = path.join(res.match(GCCPathReg)[1], sysPlatform === 'win32' ? 'gcc.exe' : 'gcc').replace(/[\\\/] /g, ' ')
+          const tmp = path.join(res.match(GCCPathReg)[1], sysPlatform === 'win32' ? 'g++.exe' : 'g++').replace(/[\\\/] /g, ' ')
           if(fs.existsSync(tmp)) {
             return tmp
           }
@@ -51,7 +51,12 @@ module.exports = {
   samplePath: resolveApp('./sample'),
   codePath: resolveApp('./code'),
   cacheTempPath: resolveApp('./temp'),
-  gccArgs: '-o',
+  gccArgs: [
+    '-g',
+    '-Wall',
+    '-O2',
+    '-std=c++11',
+  ],
   ojURL: {
     luogu: 'https://www.luogu.com.cn'
   },

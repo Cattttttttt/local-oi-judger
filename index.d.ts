@@ -16,7 +16,7 @@ declare module '@config/paths' {
     const samplePath: string
     const codePath: string
     const cacheTempPath: string
-    const gccArgs: string
+    const gccArgs: string[]
     const ojURL: ojURL
   }
 }
