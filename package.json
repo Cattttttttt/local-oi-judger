@@ -6,6 +6,9 @@
   "repository": "https://github.com/Cattttttttt/local-oi-judger.git",
   "author": "FragileNeko <qwq@dustlover.icu>",
   "license": "GPL-3.0-or-later",
+  "scripts": {
+    "test": "ts-node -r tsconfig-paths/register src/cli/index.ts"
+  },
   "bin": {
     "judger": "bin/cli"
   },
@@ -49,6 +52,7 @@
     "gulp-typescript": "^6.0.0-alpha.1",
     "prettier": "2.2.1",
     "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.1.3",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",

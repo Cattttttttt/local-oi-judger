@@ -16,7 +16,6 @@ const checkGCC = type => {
       case 'path': {
         if(GCCPathReg.test(res)) {
           const tmp = path.join(res.match(GCCPathReg)[1], sysPlatform === 'win32' ? 'gcc.exe' : 'gcc').replace(/[\\\/] /g, ' ')
-          console.log(111, tmp, fs.existsSync(tmp))
           if(fs.existsSync(tmp)) {
             return tmp
           }
@@ -31,7 +30,7 @@ const checkGCC = type => {
       default: return undefined
     }
   } catch (err) {
-    console.log(err.status)
+    console.error(err.status)
     return undefined
   }
 }
