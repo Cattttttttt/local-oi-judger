@@ -51,6 +51,8 @@ module.exports = {
   samplePath: resolveApp('./sample'),
   codePath: resolveApp('./code'),
   cacheTempPath: resolveApp('./temp'),
+  inputSuffix: '.in',
+  outputSuffix: '.out',
   gccArgs: [
     '-g',
     '-Wall',

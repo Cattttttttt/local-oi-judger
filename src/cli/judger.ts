@@ -7,13 +7,17 @@ export class Judger {
 
   public fileName: string
   public filePath: string
+  private inputFileName: string
+  private outputFileName: string
 
-  constructor(execPath: string) {
+  constructor(execPath: string, inputFileName?: string, outputFileName?: string) {
     this.filePath = execPath
     if(!fs.existsSync(execPath)) {
       console.log(red.bold(`No file \`${execPath}\` exist! Please check your temp folder.`))
     }
     this.fileName = execPath.split(/[\\/]/)[execPath.split(/[\\/]/).length - 1].split('.')[0]
+    this.inputFileName = inputFileName || this.fileName + paths.inputSuffix
+    this.outputFileName = outputFileName || this.fileName + paths.outputSuffix
     this.initJudger()
   }
 
@@ -28,6 +32,10 @@ export class Judger {
         console.log(red.bold(`Link failed! File \`${this.filePath}\` can not be executed.`))
       }
     }
+  }
+
+  private createInputReadStream() {
+    
   }
 
   public test() {

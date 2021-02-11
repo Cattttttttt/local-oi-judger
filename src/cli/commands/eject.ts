@@ -43,6 +43,8 @@ prompt({
     appPath: paths.appPath,
     cacheTempPath: paths.cacheTempPath,
     samplePath: paths.samplePath,
+    inputSuffix: paths.inputSuffix,
+    outputSuffix: paths.outputSuffix,
     codePath: paths.codePath,
   }
 

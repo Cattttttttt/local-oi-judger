@@ -63,9 +63,12 @@ export class Compiler {
         console.log(cyan(`Ready to compile file \n\t\`${filePath}\` \nto \n\t\`${outputPath}\``))
         console.log(cyan('Compiling...'))
         const gccCmd = `${this.gccPath} -v -o "${outputPath}" ${compileArgs.join(' ')} "${filePath}"`
+        const compileStart = process.uptime() * 1000
         execPromise(gccCmd)
           .then(() => {
+            const compileEnd = process.uptime() * 1000
             console.log(green.bold('Compile Success'))
+            console.log(green(`Compile done in ${Math.round(compileEnd - compileStart)}ms`))
             resolve({
               message: 'Compile Success',
               output: outputPath,
@@ -88,6 +91,5 @@ export class Compiler {
         return
       }
     })
-    
   }
 }

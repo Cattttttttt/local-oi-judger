@@ -16,6 +16,8 @@ declare module '@config/paths' {
     const samplePath: string
     const codePath: string
     const cacheTempPath: string
+    const inputSuffix: string
+    const outputSuffix: string
     const gccArgs: string[]
     const ojURL: ojURL
   }
