@@ -18,7 +18,7 @@ export class Judger {
   }
 
   private initJudger() {
-    if(paths.sysPlatform === 'win32' && this.fileName.endsWith('.exe')) {
+    if(paths.sysPlatform === 'win32' && this.filePath.endsWith('.exe')) {
       console.log(cyan(`Judger linked to file \`${this.filePath}\`\nRunning on win32`))
     } else if(paths.sysPlatform !== 'win32') {
       try {
